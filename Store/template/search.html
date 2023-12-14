@@ -1,0 +1,88 @@
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<div class="adminmenu">
+    <div class="logo">
+        <a href="">{{user.username}}</a>
+    </div>
+
+    <div class="bar">
+        <i class="fa fa-bars"></i>
+    </div>
+    
+    <div class="search">
+        <form action="{% url 'search' %}" method="get" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="enter item name or out number" class="m-3" name="search">
+            <button class="btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<div>
+    {% if search %}
+    <div class="col-md-12 p-3" style="margin-top: 100px;">
+        <div class="card">
+            {% for item in search %}
+            <div>
+                <h3 class="text-capitalize text-center">
+                    item is available
+                </h3>
+                <div class="card-body goods">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr class="text-capitalize">
+                                <th>picture</th>
+                                <th>name</th>
+                                <th>out number</th>
+                                <th>catigory</th>
+                                <th>quantity</th>
+                                <th>color</th>
+                                <th>old price</th>
+                                <th>new price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-capitalize">
+                                <td>
+                                    <img src="{{item.picture.url}}" alt="" width="100" style="height: 80px;">
+                                </td>
+                                <td>{{item.item_name}}</td>
+                                <td>{{item.out_number}}</td>
+                                <td>{{item.catigory}}</td>
+                                <td>{{item.total_quantity}}</td>
+                                <td>{{item.color}}</td>
+                                <td>{{item.old_price}}</td>
+                                <td>{{item.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border-top p-3">
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'viewItem' item.id %}" class="btn btn-primary btn-sm">view/edit</a>
+                    <a href="{% url 'deleteItem' item.id %}" class="btn btn-danger btn-sm">delete
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    {% endif %}
+                    {% if item.available %}
+                        <a href="{% url 'outofstock' item.id %}" class="btn btn-warning btn-sm">available
+                        <i class="fa fa-toggle-on"></i>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'outofstock' item.id %}" class="btn btn-warning btn-sm">unavailability
+                        <i class="fa fa-toggle-off"></i>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'editImage' item.id %}" class="btn btn-success btn-sm">edit image</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

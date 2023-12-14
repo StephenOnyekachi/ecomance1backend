@@ -1,0 +1,69 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+
+            <div class="col-md-12 p-3">
+                <div class="col-md-12 top">
+                    <div class="row">
+                        <div class="card">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    <h4 class="card-title text-capitalize text-center">
+                                        fill in the form
+                                    </h4>
+                                    <div class="text-capitalize text-dark">
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">item name</h5>
+                                            <input type="text" class="form-control" placeholder="enter item name" name="name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">out number</h5>
+                                            <input type="text" class="form-control" placeholder="enter first name" name="out_number" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">item catigory</h5>
+                                            <input type="text" class="form-control" placeholder="enter catigory" name="cattigory" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">item color</h5>
+                                            <input type="text" class="form-control" placeholder="enter item color" name="color" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">old price</h5>
+                                            <input type="number" class="form-control" placeholder="enter old price" name="old_price" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="form-horizontal text-left">new price</h5>
+                                            <input type="number" class="form-control" placeholder="enter new price" name="new_price" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h5 class="form-horizontal text-left">quantity</h5>
+                                            <input type="text" class="form-control" placeholder="enter quantity" name="total" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h5 class="form-horizontal text-left">picture</h5>
+                                            <input type="file" class="form-control" placeholder="select picture" name="picture" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card-body text-left">
+                                        <button class="btn btn-primary">Add Item</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

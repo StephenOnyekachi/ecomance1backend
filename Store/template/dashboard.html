@@ -1,0 +1,130 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+           {% include 'search.html' %}
+            <div class="col-md-12">
+                <div class="easy_menu">
+                    <div class="easy_menu1">
+                        <div class="shotcut bg-danger bg-gradiend">
+                            <div class="p-3 text-center text-capitalize">
+                                <a href="{% url 'newstaff' %}">
+                                    <i class="fa fa-user-o"></i>
+                                    <h3>add staff</h3>
+                                    <p>{{users.count}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="shotcut bg-success bg-gradiend p-3">
+                            <div class="text-center text-capitalize">
+                                <a href="{% url 'users' %}">
+                                    <i class="fa fa-users"></i>
+                                    <h3>users</h3>
+                                    <p>{{users.count}}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="easy_menu1">
+                        <div class="shotcut bg-warning bg-gradiend">
+                            <div class="p-3 text-center text-capitalize">
+                                <a href="buyorder.html">
+                                    <i class="fa fa-truck"></i>
+                                    <h3>order</h3>
+                                    <p>10</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="shotcut bg-primary bg-gradiend">
+                            <div class="p-3 text-center text-capitalize">
+                                <a href="{% url 'sells' %}">
+                                    <i class="fa fa-cubes"></i>
+                                    <h3>sells report</h3>
+                                    <p>{{report.count}}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for message in messages %}
+            <div class="col-md-12">
+                <div class="alert-info p-3 text-center text-capitalize">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md-12 p-3">
+                <div class="card">
+                    {% for item in item %}
+                    <div>
+                        <div class="card-body goods">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr class="text-capitalize">
+                                        <th>picture</th>
+                                        <th>name</th>
+                                        <th>out number</th>
+                                        <th>catigory</th>
+                                        <th>quantity</th>
+                                        <th>color</th>
+                                        <th>old price</th>
+                                        <th>new price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-capitalize">
+                                        <td>
+                                            <img src="{{item.picture.url}}" alt="" width="100" style="height: 80px;">
+                                        </td>
+                                        <td>{{item.item_name}}</td>
+                                        <td>{{item.out_number}}</td>
+                                        <td>{{item.catigory}}</td>
+                                        <td>{{item.total_quantity}}</td>
+                                        <td>{{item.color}}</td>
+                                        <td>{{item.old_price}}</td>
+                                        <td>{{item.price}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="border-top p-3">
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'viewItem' item.id %}" class="btn btn-primary btn-sm">view/edit</a>
+                            <a href="{% url 'deleteItem' item.id %}" class="btn btn-danger btn-sm">delete
+                                <i class="fa fa-trash"></i>
+                            </a>
+                            {% endif %}
+                            {% if item.available %}
+                            <a href="{% url 'outofstock' item.id %}" class="btn btn-warning btn-sm">available
+                                <i class="fa fa-toggle-on"></i>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'outofstock' item.id %}" class="btn btn-warning btn-sm">unavailability
+                                <i class="fa fa-toggle-off"></i>
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'editImage' item.id %}" class="btn btn-success btn-sm">edit image</a>
+                            {% if item.add_to_store %}
+                            <a href="{% url 'remove' item.id %}" class="btn btn-secondary btn-sm">remove from store
+                                <i class="fa fa-toggle-on"></i>
+                            </a>
+                            {% else %}   
+                            <a href="{% url 'remove' item.id %}" class="btn btn-secondary btn-sm">add to store
+                                <i class="fa fa-toggle-off"></i>
+                            </a>
+                            {% endif %} 
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

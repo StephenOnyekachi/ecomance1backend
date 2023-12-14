@@ -1,0 +1,135 @@
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div>
+        {% if request.user.is_authenticated %}
+        {% include 'base3.html' %}
+        {% else %}
+        {% include 'base1.html' %}
+        {% endif %}
+
+        <div class="col-md-12 store bg-light bg-gradiend">
+            {% if item %}
+            {% for item in item %}
+            <div class="col-md-3">
+                <div class="item bg-light bg-gradiend">
+                    <a href="{% url 'item' item.id %}">
+                        <div>
+                            <div class="text-capitalize">
+                                <p class="text-muted text-center">catigory {{item.catigory}}.</p>
+                            </div>
+                            <div>
+                                {% if item.available %}
+                                {% else %}
+                                <div class="p-3 text-capitalize stock">
+                                    out of stock
+                                </div>
+                                {% endif %}
+                                <img src="{{item.picture.url}}" alt="">
+                            </div>
+                            <div class="text-capitalize text-center">
+                                <h4 class="text-capitalize text-muted">{{item.item_name}}</h4>
+                                <label for="" class="text-muted">old price</label>
+                                <span class="text-danger text-capitalize">{{item.old_price}}</span>
+                                <h4 class="text-success text-capitalize">
+                                    <span style="text-decoration: line-through;">N</span> {{item.price}}
+                                </h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="footer col-md-12 bg-dark">
+            <div class="col-md-4">
+                <h4 class="text-light p-3">
+                    Meet Us On Socail
+                </h4>
+                <div>
+                    <a href="">
+                        <i class="fa fa-instagram text-info fa-2x"></i>
+                        <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                        @webdevelopment
+                        </p>
+                        <p class="text-capitalize text-white-50">
+                        instagram
+                        </p>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+                        <i class="fa fa-facebook-square text-info fa-2x"></i>
+                        <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                        @webdevelopment
+                        </p>
+                        <p class="text-capitalize text-white-50">
+                        facebook
+                        </p>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+                        <i class="fa fa-linkedin text-info fa-2x"></i>
+                        <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                        @webdevelopment
+                        </p>
+                        <p class="text-capitalize text-white-50">
+                        linkedin
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="text-light p-3">
+                    About Us
+                </h4>
+                <div>
+                    <p class="text-white-50 text-capitalize">
+                        We Deal With Electrical Materials
+                    </p>
+                    <p class="text-white-50 text-capitalize">
+                        Importing and Exporting
+                    </p>
+                    <h5 class="text-white-50 text-capitalize">
+                        We have been on the feild more than 50 years of experance
+                    </h5>
+                    <p class="text-white-50 text-capitalize">
+                        We Deal With Electrical Materials
+                    </p>
+                    <p class="text-white-50 text-capitalize">
+                        Importing and Exporting
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="text-light p-3">
+                    More
+                </h4>
+                <div>
+                    <p class="text-white-50 text-capitalize">
+                        <b>Online Payment</b><br>
+                        you can pay from are website after booking
+                    </p>
+                    <p class="text-white-50 text-capitalize">
+                        <b>card Payment</b><br>
+                        you can pay directly with your card
+                    </p>
+                    <p class="text-white-50 text-capitalize">
+                        <b>Cash Payment</b><br>
+                        you can pay with cash
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

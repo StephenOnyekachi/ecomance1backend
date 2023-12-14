@@ -1,0 +1,42 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+
+            <div class="col-md-12 p-3">
+                <div class="col-md-12 top">
+                    <div class="row">
+                        <div class="card">
+                            {% for message in message %}
+                            <div class="card-body goods">
+                                <div class="itembox text-capitalize">
+                                    <div>
+                                        <p>
+                                            {{message.message}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-top">
+                                <div class="card-body text-primary">
+                                    <p>sender phone number: {{message.sender_number}}</p>
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <i>Date: {{message.sent_date}}</i>
+                                        <i class="text-capitalize"><b>sender:</b> {{message.sender_name}}</i>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+{% endblock %}

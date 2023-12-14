@@ -1,0 +1,375 @@
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+
+ <body>
+    <div>
+      {% if request.user.is_authenticated %}
+      {% include 'base3.html' %}
+      {% else %}
+      {% include 'base1.html' %}
+      {% endif %}
+      <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+        <div class="banner-inner">
+          <div class="col-md-12 text-center">
+            <div class="notice">
+              <div class="notice-info">
+                <h3>
+                  We Deal With Electrical Materials
+                </h3>
+                <p>Importers and Exporters</p>
+
+                <a href="">More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 about">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="experance">
+              <div>
+                <h4>more than</h4>
+                <div class="year">
+                  <i class="fa fa-star-half"></i>
+                  <h1>50</h1>
+                  <span>years of</span>
+                </div>
+                <p>experience</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 p-3">
+            <div class="m-3">
+              <div class="col-md-12">
+                <h3 class="header-tag mb-3 p-3">
+                  Litle Sample
+                </h3>
+                <div style="height: 350px;">
+                  <!-- Swiper -->
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">armoured cables</label>
+                        <img src="{% static 'img/001.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">PVC pipes</label>
+                        <img src="{% static 'img/002.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">home appliances</label>
+                        <img src="{% static 'img/003.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">single wires</label>
+                        <img src="{% static 'img/004.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">flex wires</label>
+                        <img src="{% static 'img/005.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">all kind of fans</label>
+                        <img src="{% static 'img/006.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">wall fittings(out side light)</label>
+                        <img src="{% static 'img/007.jpg' %}" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <label for="" class="text-capitalize text-success">wall fittings(indoor)</label>
+                        <img src="{% static 'img/008.jpg' %}" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center p-5 bg-light">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <h3 class="header-tag mb-3 text-left">
+              Our Management
+            </h3>
+            <div class="swiper-card mycard">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="{% static '1-old.jpg' %}" alt="">
+                  <div class="staff">
+                    <h3>name</h3>
+                    <p>position</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <img src="{% static 'agent.jpg' %}" alt="">
+                  <div class="staff">
+                    <h3>name</h3>
+                    <p>position</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <img src="{% static 'agent3.png' %}" alt="">
+                  <div class="staff">
+                    <h3>name</h3>
+                    <p>position</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3 class="header-tag mb-3 text-left">
+              About Us
+            </h3>
+            <div class="m-3 text-left writeup">
+              <h5>We have been on the feild more than 50 years of experance</h5>
+              <p>We Deal With Electrical Materials</p>
+              <p>Importing and Exporting</p>
+            </div>
+            <div class="mb-3 text-left writeup">
+              <h3 class="text-warning">
+                We Deal With Electrical Materials
+              </h3>
+              <p>Importing and Exporting</p>
+              <a href="">More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 partners">
+        <div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-users icons"></i>
+              <h3 class="text-light text-uppercase">Partnership</h3>
+              <p class="text-capitalize text-light">
+                we partner with over
+              </p>
+              <h1 class="numbers">100+</h1>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-calendar icons"></i>
+              <h3 class="text-light text-uppercase">days of work</h3>
+              <p class="text-capitalize text-light">
+                we are available on the following days
+              </p>
+              <h1 class="numbers">MON - SAT</h1>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-clock-o icons"></i>
+              <h3 class="text-light text-uppercase">opening time</h3>
+              <p class="text-capitalize text-light">
+                our offices are open on this time
+              </p>
+              <h1 class="numbers">8:00AM - 6:30PM</h1>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-star icons"></i>
+              <h3 class="text-light text-uppercase">best</h3>
+              <p class="text-capitalize text-light">
+                we give you the best
+              </p>
+              <h1 class="numbers">100%</h1>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-users icons"></i>
+              <h3 class="text-light text-uppercase">works</h3>
+              <p class="text-capitalize text-light">
+                we have well trained workers that will serve you well
+              </p>
+              <h1 class="numbers">100%</h1>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="parts">
+              <i class="fa fa-address-book icons"></i>
+              <h3 class="text-light text-uppercase">booking</h3>
+              <p class="text-capitalize text-light">
+                book item from your home we got your back
+              </p>
+              <h1 class="numbers">100%</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 info">
+        <div class="col-md-6 bg-dark bg-gradient p-5">
+          <h3 class="header-tag mb-3">
+            Contact Us
+          </h3>
+          <div>
+            <i class="fa fa-phone icons"></i>
+            <span class="text-light text-capitalize"> +234 9031 360 947</span>
+            <p class="text-capitalize text-light">
+              reach us on phone
+            </p>
+          </div>
+          <div>
+            <a href="">
+              <i class="fa fa-whatsapp icons"></i>
+              <span class="text-light text-capitalize"> whatsapp</span>
+            </a>
+            <p class="text-capitalize text-light">
+              reach us on whatsapp
+            </p>
+          </div>
+          <div>
+            <a href="">
+              <i class="fa fa-facebook-square icons"></i>
+              <span class="text-light text-capitalize"> facebook</span>
+            </a>
+            <p class="text-capitalize text-light">
+              reach us on facebook
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 bg-light p-5">
+          <h3 class="header-tag text-dark mb-3">
+            Message Us
+          </h3>
+          <div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <p class="text-capitalize text-dark">
+                  name:
+                </p>
+                <input type="text" placeholder="enter your name" name="name" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <p class="text-capitalize text-dark">
+                  Phone Number:
+                </p>
+                <input type="text" placeholder="enter your phone number" name="number" class="form-control" required>
+              </div>
+              <div class="col-md-12">
+                <p class="text-capitalize text-dark">
+                  message:
+                </p>
+                <textarea name="message" id="" cols="30" rows="5" class="form-control" required></textarea>
+              </div>
+              <div class="col-md-12 p-3">
+                <button class="btn btn-primary" style="width: 100%;text-align: center;">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer col-md-12 bg-dark">
+        <div class="col-md-4">
+          <h4 class="text-light p-3">
+            Meet Us On Socail
+          </h4>
+          <div>
+            <a href="">
+              <i class="fa fa-instagram text-info fa-2x"></i>
+              <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                @webdevelopment
+              </p>
+              <p class="text-capitalize text-white-50">
+                instagram
+              </p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <i class="fa fa-facebook-square text-info fa-2x"></i>
+              <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                @webdevelopment
+              </p>
+              <p class="text-capitalize text-white-50">
+                facebook
+              </p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <i class="fa fa-linkedin text-info fa-2x"></i>
+              <p class="text-white-50 text-capitalize" style="margin-top: -26px;margin-left: 25px;">
+                @webdevelopment
+              </p>
+              <p class="text-capitalize text-white-50">
+                linkedin
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h4 class="text-light p-3">
+            About Us
+          </h4>
+          <div>
+            <p class="text-white-50 text-capitalize">
+              We Deal With Electrical Materials
+            </p>
+            <p class="text-white-50 text-capitalize">
+              Importing and Exporting
+            </p>
+            <h5 class="text-white-50 text-capitalize">
+              We have been on the feild more than 50 years of experance
+            </h5>
+            <p class="text-white-50 text-capitalize">
+              We Deal With Electrical Materials
+            </p>
+            <p class="text-white-50 text-capitalize">
+              Importing and Exporting
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h4 class="text-light p-3">
+            More
+          </h4>
+          <div>
+            <p class="text-white-50 text-capitalize">
+              <b>Online Payment</b><br>
+              you can pay from are website after booking
+            </p>
+            <p class="text-white-50 text-capitalize">
+              <b>card Payment</b><br>
+              you can pay directly with your card
+            </p>
+            <p class="text-white-50 text-capitalize">
+              <b>Cash Payment</b><br>
+              you can pay with cash
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+ </body>
+ </html>
+
+ {% endblock %}
+

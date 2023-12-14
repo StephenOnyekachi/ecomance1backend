@@ -1,0 +1,184 @@
+
+
+@media only screen and (max-width: 900px){
+
+    .bar{
+        display: block;
+    }
+    .menu-link{
+        display: none;
+        z-index: 100;
+    }
+    .menu-link ul{
+        border-top: 1px solid white;
+        display: block;
+        text-decoration: none;
+    }
+    .menu-link ul li{
+        margin-left: -40px;
+        font-size: 20px;
+    }
+
+    .banner{
+        height: 64vh;
+    }
+    .banner img{
+        height: 64vh;
+    }
+    .banner-inner{
+        height: 64vh;
+    }
+
+    .notice{
+        margin-top: 150px;
+        padding: 10px;
+    }
+    .notice-info{
+        padding: 10px;
+    }
+
+    .login_notice{
+        margin-top: 100px;
+        padding: 10px;
+    }
+    .login_notice-info{
+        padding: 0px;
+    }
+
+    .notice h3{
+        color: white;
+        font-size: 2.5rem;
+        font-family: 'Times New Roman';
+        font-weight: bolder;
+        text-shadow: none
+    }
+    .notice p{
+        color: white;
+        font-size: 2rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: lighter;
+        text-shadow: none;
+        margin-top: 15px;
+    }
+
+    .about{
+        background-color: white;
+        padding: 10px;
+    }
+    .writeup h5, .writeup p{
+        font-size: 20px;
+    }
+
+    .experance{
+        position: relative;
+        top: -0px;
+        left: -20px;
+        text-align: center;
+        border: 10px solid goldenrod;
+        width: 300px;
+    }
+
+    .store{
+        padding: 10px;
+        margin-top: 130px;
+        background: white;
+    }
+    .item{
+        font-size: 20px;
+    }
+    .item .stock{
+        width: 70%;
+    }
+
+    .info{
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .footer{
+        padding: 5px;
+        width: 100%;
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+
+
+    .leftside-manu{
+        height: 99vh;
+        width: 80%;
+        z-index: 1000;
+        top: 0px;
+        display: none;
+    }
+    .stocks{
+        margin-top: -10px;
+        color: white;
+        margin-bottom: 0px;
+        background-color: white;
+        height: 99vh;
+    }
+    .stocks ul a{
+        font-size: 20px;
+    }
+
+
+    .site-bg{
+        width: 100%;
+        left: 0px;
+        top: 90px;
+        /* border: 1px solid red; */
+    }
+
+    .search{
+        width: 80%;
+        margin-left: 0px;
+    }
+    .search form{
+        display: flex;
+    }
+    .search form input{
+        font-size: 20px;
+    }
+
+    .top{
+        margin-top: 30px;
+    }
+
+    .menu{
+        display: block;
+    }
+    .carts{
+        display: flex;
+        margin-top: 15px;
+        margin-left: 0px;
+    }
+    .easy_menu{
+        display: flex;
+        margin-top: 25px;
+    }
+    .easy_menu1{
+        display: block;
+        width: 100%;
+        margin: 3px 5px;
+    }
+    .shotcut{
+        border-radius: 10px;
+        box-shadow: 0 2px 3px rgb(107, 107, 107);
+        width: 100%;
+        margin: 10px 3px;
+        color: white;
+        height: 107px;
+    }
+    .goods{
+        display: block;
+        font-size: 18px;
+        padding: 0px;
+    }
+    .goods img{
+        width: 95%;
+        height: 150px;
+    }
+    .links a{
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,55 @@
+
+<div class="leftside-manu">
+    <h4 class="text-center text-uppercase">
+        <a href="{% url 'logout' %}" class="text-capitalize">
+            <i class="fa fa-power-off"></i>
+            log out
+        </a>
+    </h4>
+    <div class="stocks text-left">
+        <ul>
+            <li {% if '/dashboard/' == request.path %} class="stocks-active" {% endif %}>
+                <a href="{% url 'dashboard' %}" class="text-capitalize">
+                    <i class="fa fa-check-circle"></i>
+                    available item
+                </a>
+            </li>
+            <li {% if '/additem/' == request.path %} class="stocks-active" {% endif %}>
+                <a href="{% url 'additem' %}" class="text-capitalize">
+                    <i class="fa fa-plus"></i>
+                    add new item
+                </a>
+            </li>
+            <li {% if '/pricelist/' == request.path %} class="stocks-active" {% endif %}>
+                <a href="{% url 'pricelist' %}" class="text-capitalize">
+                    <i class="fa fa-address-book"></i>
+                    price list
+                </a>
+            </li>
+            <li {% if '/sells/' == request.path %} class="stocks-active" {% endif %}>
+                <a href="{% url 'sells' %}" class="text-capitalize">
+                    <i class="fa fa-list-ol"></i>
+                    sells report
+                </a>
+            </li>
+            <li>
+                <a href="order.html" class="text-capitalize">
+                    <i class="fa fa-list-alt"></i>
+                    order
+                </a>
+            </li>
+            <li {% if '/message/' == request.path %} class="stocks-active" {% endif %}>
+                <a href="{% url 'message' %}" class="text-capitalize">
+                    <i class="fa fa-envelope"></i>
+                    messages
+                </a>
+            </li>
+            <li>
+                <a href="payment.html" class="text-capitalize">
+                    <i class="fa fa-credit-card"></i>
+                    payments
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

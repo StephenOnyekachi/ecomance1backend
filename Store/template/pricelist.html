@@ -1,0 +1,53 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+            
+            {% for message in messages %}
+            <div class="col-md-12">
+                <div class="alert-info p-3 text-center text-capitalize">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md-12 p-3">
+                <div class="card">
+                    <div>
+                        <div class="card-body goods">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr class="text-capitalize">
+                                        <th>picture</th>
+                                        <th>name</th>
+                                        <th>out number</th>
+                                        <th>old price</th>
+                                        <th>new price</th>
+                                    </tr>
+                                </thead>
+                                {% for item in price %}
+                                <tbody>
+                                    <tr class="text-capitalize">
+                                        <td>
+                                            <img src="{{item.picture.url}}" alt="" width="100" style="height: 80px;">
+                                        </td>
+                                        <td>{{item.item_name}}</td>
+                                        <td>{{item.out_number}}</td>
+                                        <td>{{item.old_price}}</td>
+                                        <td>{{item.price}}</td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+{% endblock %}

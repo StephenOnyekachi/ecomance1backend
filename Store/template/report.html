@@ -1,0 +1,59 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+
+            <div class="col-md-12 p-3">
+                <div class="">
+                    <div class="card p-3">
+                        <h4 class="card-title text-capitalize text-center p-3">create report for this</h4>
+                        <div class="col-md-12">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr class="text-capitalize">
+                                            <th>picture</th>
+                                            <th>name</th>
+                                            <th>quantity</th>
+                                            <th>new price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-capitalize">
+                                            <td>
+                                                <img src="{{item.picture.url}}" alt="" width="100" height="50">
+                                            </td>
+                                            <td>
+                                                <p>{{item.item_name}}</p>
+                                                <input type="text" class="form-control" value="{{item.item_name}}" name="name" hidden/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" placeholder="quantity" name="total"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" placeholder="sold price" name="new_price"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

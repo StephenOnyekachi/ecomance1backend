@@ -1,0 +1,67 @@
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+
+            <div class="col-md-12 p-3">
+                <div class="col-md-12 top">
+                    <div class="row">
+                        <div class="card">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    <h4 class="card-title text-capitalize text-center">add new staff</h4>
+                                    <div class="text-capitalize text-dark">
+                                        <div>
+                                            <h5 class="form-horizontal">user name</h5>
+                                            <input type="text" class="form-control" placeholder="enter user name" name="username" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">first name</h5>
+                                            <input type="text" class="form-control" placeholder="enter first name" name="firstname" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">last name</h5>
+                                            <input type="text" class="form-control" placeholder="enter last name" name="lastname" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">phone number</h5>
+                                            <input type="text" class="form-control" placeholder="enter phone number" name="number" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">gender</h5>
+                                            <input type="text" class="form-control" placeholder="enter gender" name="gender" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">position</h5>
+                                            <input type="text" class="form-control" placeholder="enter position" name="position" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">password</h5>
+                                            <input type="password" class="form-control" placeholder="create password" name="password1" required>
+                                        </div>
+                                        <div>
+                                            <h5 class="form-horizontal">confirm password</h5>
+                                            <input type="password" class="form-control" placeholder="confirm password" name="password2" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button class="btn btn-primary">Create Staff</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

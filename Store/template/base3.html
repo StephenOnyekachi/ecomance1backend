@@ -1,0 +1,45 @@
+<div class="col-md-12 menu">
+    <div class="col-md-3 logo text-uppercase">
+        <a href="">{{request.user}}</a>
+    </div>
+
+    <div class="bar">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="col-md-6 menu-link">
+        <ul>
+          <li>
+            <a href="{% url 'index' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'store' %}">Store</a>
+          </li>
+          <li>
+            <a href="">Histories</a>
+          </li>
+          <li id="login">
+            <a href="{% url 'logout' %}">log out</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="col-md-4 text-left carts">
+      <div class="p-2">
+        <a href="{% url 'cart' %}">
+          <i class="fa fa-cart-plus text-light fa-2x"></i>
+          <span style="font-weight: lighter;font-size:10px;
+            color:white;position: relative;top: -10px;background-color: rgba(255, 0, 0, 0.815);
+            padding: 5px;border-radius: 5px;">{{cart.count}}
+          </span>
+        </a>
+      </div>
+      <div class="p-2">
+        <form action="" style="display: flex;">
+          <input type="text" placeholder="enter item name" class="form-control">
+          <button class="btn"><i class="fa fa-search text-light"></i></button>
+        </form>
+      </div>
+    </div>
+
+</div>

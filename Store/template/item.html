@@ -1,0 +1,57 @@
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% if request.user.is_authenticated %}
+        {% include 'base3.html' %}
+        {% else %}
+        {% include 'base1.html' %}
+        {% endif %}
+
+        <div class="col-md-12 store bg-light bg-gradiend">
+            <div class="col-md-6">
+                <div class="item bg-light bg-gradiend">
+                    <div>
+                        <div class="text-capitalize">
+                            <p class="text-muted text-right">Catigory: {{item.catigory}}</p>
+                        </div>
+                        <div class="text-capitalize text-right">
+                            <h4 class="text-capitalize text-muted">Name: {{item.item_name}}</h4>
+                            <h4 class="text-success text-capitalize">
+                                <span style="text-decoration: line-through;">N</span> {{item.price}}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="p-2 main-img">
+                            <img src="{{item.picture.url}}" alt="" height="300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div>
+                            <input type="text" value="{{item.item_name}}" name="item" hidden>
+                            <input type="text" value="{{item.catigory}}" name="catigory" hidden>
+                            <input type="number" value="{{item.price}}" name="price" hidden>
+                            <input type="text" value="{{item.out_number}}" name="out_number" hidden>
+                        </div>
+                        <div class="p-2">
+                            <input type="text" placeholder="enter quantity" value="1" class="form-control" name="quantity">
+                        </div>
+                        <div class="p-2">
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

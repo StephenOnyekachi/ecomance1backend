@@ -1,0 +1,41 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+            <div class="col-md-12 p-3">
+                <div class="">
+                    <div class="card p-3">
+                        <h4 class="card-title text-capitalize text-center p-3">change picture here</h4>
+                        <div class="col-md-12">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div>
+                                    <div>
+                                        <img src="{{item.picture.url}}" alt="" width="400">
+                                    </div>
+                                    <div class="p-3">
+                                        <input type="file" name="picture" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button class="btn btn-primary">
+                                            Change Picture
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

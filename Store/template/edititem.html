@@ -1,0 +1,74 @@
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% include 'base2.html' %}
+        <div class="site-bg">
+            {% include 'search.html' %}
+
+            <div class="col-md-12 p-3">
+                <div class="">
+                    <div class="card p-3">
+                        <h4 class="card-title text-capitalize text-center p-3">edit this item here</h4>
+                        <div class="col-md-12">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr class="text-capitalize">
+                                            <th>picture</th>
+                                            <th>name</th>
+                                            <th>out number</th>
+                                            <th>catigory</th>
+                                            <th>quantity</th>
+                                            <th>color</th>
+                                            <th>old price</th>
+                                            <th>new price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-capitalize">
+                                            <td>
+                                                <img src="{{item.picture.url}}" alt="" width="100" height="50">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" value="{{item.item_name}}" name="name"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" value="{{item.out_number}}" name="outnumber"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" value="{{item.catigory}}" name="catigory"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" value="{{item.total_quantity}}" name="total"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" value="{{item.color}}" name="color"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" value="{{item.old_price}}" name="old_price"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" value="{{item.price}}" name="new_price" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

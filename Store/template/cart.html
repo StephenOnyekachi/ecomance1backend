@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+   crossorigin="anonymous">
+
+   <link rel="icon" href="styles/img/bg.jpg">
+
+{% extends 'links.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        {% if request.user.is_authenticated %}
+        {% include 'base3.html' %}
+        {% else %}
+        {% include 'base1.html' %}
+        {% endif %}
+
+        <div class="col-md-12 store bg-light bg-gradiend">
+            {{request.user}}
+            <div class="col-md-12 store bg-light bg-gradiend">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize text-center">
+                        your cart
+                    </h5>
+                    {% if cart %}
+                    <div class="card">
+                        {% for cart in cart %}
+                        <div class="card-body goods">
+                            <div class="itembox text-capitalize">
+                                <tr class="text-capitalize">
+                                    <td>Item Name: {{cart.item_name}}</td>,
+                                    <td>Item Catigory: {{cart.catigory}}</td>,
+                                    <td>Quantity: {{cart.quantity}}</td>,
+                                    <td>
+                                        Item Price:
+                                        <span style="text-decoration: line-through;">N</span>
+                                        {{cart.price}}
+                                    </td>,
+                                    <td>
+                                        <a href="{% url 'deletecart' cart.id %}" class="text-danger">
+                                            <i class="fa fa-trash"> remove</i>
+                                        </a>
+                                    </td>
+                                </tr>  
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card-body text-primary">
+                                <div style="display: flex;justify-content: space-between;">
+                                    <i>Date: {{cart.but_date}}</i>
+                                    <i class="text-capitalize"><b>sender:</b> {{cart.buyer_name}}</i>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-12 item">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div>
+                                {% if cart %}
+                                    {% for cart in cart %}
+                                    <input type="text" value="{{cart.item_name}}" name="name" hidden>
+                                    <input type="text" value="{{cart.catigory}}" name="catigory" hidden>
+                                    <input type="number" value="{{cart.quantity}}" name="quantity" hidden>
+                                    <input type="number" value="{{cart.price}}" name="price" hidden>
+                                    <input type="text" value="{{cart.price}}" name="price" hidden>
+                                    {% endfor %}
+                                {% endif %}
+                                <input type="text" value="{{total_cart_price}}" name="total_price" hidden>
+                            </div>
+                            <div class="bg-light bg-gradiend">
+                                <label for="" class="text-capitalize text-muted">total money</label>
+                                <h4 class="text-success text-capitalize">
+                                    <span style="text-decoration: line-through;">N</span> {{total_cart_price}}
+                                </h4>
+                            </div>
+                            <button class="btn btn-success text-capitalize">pay</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
